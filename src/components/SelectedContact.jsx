@@ -33,7 +33,8 @@ const SelectedContact = ({ selectedContactId, setSelectedContactId }) => {
       <p><strong>City: </strong>{contact.address.city}</p>
       <p><strong>Street: </strong>{contact.address.street}</p>
       <p><strong>Zipcode: </strong>{contact.address.zipcode}</p>
-      
+
+      <button onClick={() => {setSelectedContactId(null)}}>Home</button>
     </>
   );
 };
