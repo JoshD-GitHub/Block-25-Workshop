@@ -5,11 +5,8 @@ const SelectedContact = ({ selectedContactId, setSelectedContactId }) => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/users/${selectedContactId}`
-        );
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${selectedContactId}`);
         const data = await response.json();
-        console.log('Contact',data);
         setContact(data);
       } catch (error) {
         console.error(error);
@@ -19,7 +16,7 @@ const SelectedContact = ({ selectedContactId, setSelectedContactId }) => {
   }, [selectedContactId]);
 
   if (!contact) {
-    return <p>test</p>
+    return <p>...</p>
   };
 
   return (
@@ -29,9 +26,11 @@ const SelectedContact = ({ selectedContactId, setSelectedContactId }) => {
       <p><strong>Email: </strong>{contact.email}</p>
       <p><strong>Phone: </strong>{contact.phone}</p>
       <p><strong>Website: </strong>{contact.website}</p>
+      <p><strong>Company: </strong>{contact.company.name}</p>
       <h2>Address</h2>
       <p><strong>City: </strong>{contact.address.city}</p>
       <p><strong>Street: </strong>{contact.address.street}</p>
+      <p><strong>Suite: </strong>{contact.address.suite}</p>
       <p><strong>Zipcode: </strong>{contact.address.zipcode}</p>
 
       <button onClick={() => {setSelectedContactId(null)}}>Home</button>
