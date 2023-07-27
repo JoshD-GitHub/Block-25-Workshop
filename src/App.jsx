@@ -1,13 +1,13 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import ContactList from './components/ContactList';
 
 const App = () => {
-  // const [count, setCount] = useState(0);
-
+  const [selectedContactId, setSelectedContactId] = useState(null);
+  
   return (
     <>
-      <ContactList />
+      {selectedContactId ? <div>"a short message"</div> : <ContactList setSelectedContactId={setSelectedContactId} />}
     </>
   );
 };
